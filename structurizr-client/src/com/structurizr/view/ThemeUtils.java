@@ -26,7 +26,7 @@ public final class ThemeUtils {
 
     private static final int HTTP_OK_STATUS = 200;
 
-    private static final int DEFAULT_TIMEOUT_IN_MILLISECONDS = 10000;
+    private static final int DEFAULT_TIMEOUT = 10000;
 
     /**
      * Serializes the theme (element and relationship styles) in the specified workspace to a file, as a JSON string.
@@ -73,7 +73,7 @@ public final class ThemeUtils {
      * @throws Exception    if something goes wrong
      */
     public static void loadThemes(Workspace workspace) throws Exception {
-        loadThemes(workspace, DEFAULT_TIMEOUT_IN_MILLISECONDS);
+        loadThemes(workspace, DEFAULT_TIMEOUT);
     }
 
     /**

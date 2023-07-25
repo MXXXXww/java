@@ -381,61 +381,107 @@ public final class ElementStyle extends AbstractStyle {
     }
 
     void copyFrom(ElementStyle elementStyle) {
+        copyWidth(elementStyle);
+        copyHeight(elementStyle);
+        copyBackground(elementStyle);
+        copyStroke(elementStyle);
+        copyStrokeWidth(elementStyle);
+        copyColor(elementStyle);
+        copyFontSize(elementStyle);
+        copyShape(elementStyle);
+        copyIcon(elementStyle);
+        copyBorder(elementStyle);
+        copyOpacity(elementStyle);
+        copyMetadata(elementStyle);
+        copyDescription(elementStyle);
+        copyProperties(elementStyle);
+    }
+
+// Helper methods to copy individual properties
+
+    private void copyWidth(ElementStyle elementStyle) {
         if (elementStyle.getWidth() != null) {
             this.setWidth(elementStyle.getWidth());
         }
+    }
 
+    private void copyHeight(ElementStyle elementStyle) {
         if (elementStyle.getHeight() != null) {
             this.setHeight(elementStyle.getHeight());
         }
+    }
 
+    private void copyBackground(ElementStyle elementStyle) {
         if (!StringUtils.isNullOrEmpty(elementStyle.getBackground())) {
             this.setBackground(elementStyle.getBackground());
         }
+    }
 
+    private void copyStroke(ElementStyle elementStyle) {
         if (!StringUtils.isNullOrEmpty(elementStyle.getStroke())) {
             this.setStroke(elementStyle.getStroke());
         }
+    }
 
+    private void copyStrokeWidth(ElementStyle elementStyle) {
         if (elementStyle.getStrokeWidth() != null) {
             this.setStrokeWidth(elementStyle.getStrokeWidth());
         }
+    }
 
+    private void copyColor(ElementStyle elementStyle) {
         if (!StringUtils.isNullOrEmpty(elementStyle.getColor())) {
             this.setColor(elementStyle.getColor());
         }
+    }
 
+    private void copyFontSize(ElementStyle elementStyle) {
         if (elementStyle.getFontSize() != null) {
             this.setFontSize(elementStyle.getFontSize());
         }
+    }
 
+    private void copyShape(ElementStyle elementStyle) {
         if (elementStyle.getShape() != null) {
             this.setShape(elementStyle.getShape());
         }
+    }
 
+    private void copyIcon(ElementStyle elementStyle) {
         if (!StringUtils.isNullOrEmpty(elementStyle.getIcon())) {
             this.setIcon(elementStyle.getIcon());
         }
+    }
 
+    private void copyBorder(ElementStyle elementStyle) {
         if (elementStyle.getBorder() != null) {
             this.setBorder(elementStyle.getBorder());
         }
+    }
 
+    private void copyOpacity(ElementStyle elementStyle) {
         if (elementStyle.getOpacity() != null) {
             this.setOpacity(elementStyle.getOpacity());
         }
+    }
 
+    private void copyMetadata(ElementStyle elementStyle) {
         if (elementStyle.getMetadata() != null) {
             this.setMetadata(elementStyle.getMetadata());
         }
+    }
 
+    private void copyDescription(ElementStyle elementStyle) {
         if (elementStyle.getDescription() != null) {
             this.setDescription(elementStyle.getDescription());
         }
+    }
 
+    private void copyProperties(ElementStyle elementStyle) {
         for (String name : elementStyle.getProperties().keySet()) {
             this.addProperty(name, elementStyle.getProperties().get(name));
         }
     }
-    
+
+
 }

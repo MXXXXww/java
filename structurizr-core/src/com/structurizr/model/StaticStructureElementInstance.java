@@ -184,40 +184,12 @@ public abstract class StaticStructureElementInstance extends DeploymentElement {
     /**
      * Adds a relationship between this element instance and an infrastructure node.
      *
-     * @param destination   the destination InfrastructureNode
-     * @param description   a short description of the relationship
-     * @param technology    the technology
-     * @return              a Relationship object
+     * @param relationshipInfo  a RelationshipInfo object that contains the details of the relationship
+     * @return a Relationship object
      */
-    public Relationship uses(InfrastructureNode destination, String description, String technology) {
-        return uses(destination, description, technology, null);
-    }
-
-    /**
-     * Adds a relationship between this element instance and an infrastructure node.
-     *
-     * @param destination       the destination InfrastructureNode
-     * @param description       a short description of the relationship
-     * @param technology        the technology
-     * @param interactionStyle  the interaction style (Synchronous vs Asynchronous)
-     * @return                  a Relationship object
-     */
-    public Relationship uses(InfrastructureNode destination, String description, String technology, InteractionStyle interactionStyle) {
-        return uses(destination, description, technology, interactionStyle, new String[0]);
-    }
-
-    /**
-     * Adds a relationship between this element instance and an infrastructure node.
-     *
-     * @param destination       the destination InfrastructureNode
-     * @param description       a short description of the relationship
-     * @param technology        the technology
-     * @param interactionStyle  the interaction style (Synchronous vs Asynchronous)
-     * @param tags              an array of tags
-     * @return                  a Relationship object
-     */
-    public Relationship uses(InfrastructureNode destination, String description, String technology, InteractionStyle interactionStyle, String[] tags) {
-        return getModel().addRelationship(this, destination, description, technology, interactionStyle, tags);
+    public Relationship uses(RelationshipInfo relationshipInfo) {
+        return getModel().addRelationship(this, relationshipInfo.getDestination(), relationshipInfo.getDescription(),
+                relationshipInfo.getTechnology(), relationshipInfo.getInteractionStyle(), relationshipInfo.getTags());
     }
 
 }
